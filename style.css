@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+ul {
+  list-style: none;
+}
+
 a {
   text-decoration: none;
 }
@@ -38,7 +42,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1 {
+.title {
   font: 700 1.875rem "Poppins", sans-serif;
   color: var(--title-color);
   -webkit-font-smoothing: auto;
@@ -71,6 +75,20 @@ h1 {
   background-color: var(--body-color);
 }
 
+main {
+  margin-top: calc(var(--header-height) + 2rem);
+}
+
+/*========= LOGO =========== */
+.logo {
+  font: 700 1.31rem "Poppins", sans-serif;
+  color: var(--title-color);
+}
+
+.logo span {
+  color: var(--base-color);
+}
+
 .button {
   background-color: var(--base-color);
   color: var(--text-color-light);
@@ -95,6 +113,7 @@ h1 {
     hsla(var(--hue), 65%, 88%, 0.34) 100%);
 }
 
+/*========= NAVIGATION =========== */
 nav {
   height: var(--header-height);
   display: flex;
@@ -103,20 +122,64 @@ nav {
   width: 100%;
 }
 
-.logo {
-  font: 700 1.31rem "Poppins", sans-serif;
-  color: var(--title-color);
+nav ul li {
+  text-align: center;
+  position: relative;
 }
 
-.logo span {
+nav ul li a {
+  transition: color 0.2s;
+}
+
+nav ul li a:hover {
   color: var(--base-color);
 }
 
-main {
-  margin-top: var(--header-height);
+nav ul li a:after { 
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: var(--base-color);
+
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
+
+  transition: width 0.2s;
 }
 
+nav ul li a:hover::after {
+  width: 100%;
+}
 
+nav .menu {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ===== MOSTRAR MENU ======== */
+nav.show .menu {
+  opacity: 1;
+  visibility: visible;
+
+  background: var(--body-color);
+
+  height: 100vh;
+  width: 100vw;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+nav.show .menu {
+  display: grid;
+  place-content: center;
+}
+
+nav.show ul.grid {
+  gap: 4rem;
+}
 
 /*========= HOME =========== */
 #home {
