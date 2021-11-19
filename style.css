@@ -22,7 +22,7 @@ img {
   --header-height: 4.5rem;
 
   /* colors */
-  --hue: 16;
+  --hue: 159;
   /* HSL color mode */
   --base-color: hsl(var(--hue) 36% 57%);
   --base-color-second: hsl(var(--hue) 65% 88%);
@@ -35,6 +35,10 @@ img {
 
 
 /* =========== BASE ================= */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font: 400 1rem "DM Sans", sans-serif;
   color: var(--text-color);
@@ -66,6 +70,14 @@ body {
   margin-bottom: 1rem;
 }
 
+.section header {
+  margin-bottom: 4rem;
+}
+
+.section header strong {
+  color: var(--base-color);
+}
+
 #header {
   border-bottom: 1px solid #e4e4e4;
   margin-bottom: 2rem;
@@ -79,6 +91,19 @@ body {
   background-color: var(--body-color);
 }
 
+#header.scroll{
+  background: var(--base-color);
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 1);
+}
+/*Muda a cor do span do titulo quando se dá scroll na pag */
+#header.scroll .logo span {
+  color: white;
+}
+
+/*Muda a cor do icon do Menu quando se dá scroll na pag*/
+#header.scroll .icon-menu {
+  color: white;
+}
 main {
   margin-top: calc(var(--header-height) + 2rem);
 }
@@ -168,6 +193,12 @@ nav ul li a:hover::after {
 nav .menu {
   opacity: 0;
   visibility: hidden;
+  top: -20rem;
+  transition: .2s;
+}
+
+nav .menu ul {
+  display: none;
 }
 
 /* ===== MOSTRAR MENU ======== */
@@ -183,11 +214,13 @@ nav.show .menu {
   position: fixed;
   top: 0;
   left: 0;
-}
 
-nav.show .menu {
   display: grid;
   place-content: center;
+}
+
+nav.show .menu ul {
+  display: grid;
 }
 
 nav.show ul.grid {
@@ -203,14 +236,22 @@ nav.show ul.grid {
 nav .icon-close {
   visibility: hidden;
   opacity: 0;
+
+  position: absolute;
+  top: -1.5rem;
+  right: 1.5rem;
+
+  transition: 0.2s;
 }
 
 nav.show div.icon-close {
   visibility: visible;
   opacity: 1;
-
+  top: 1.5rem;
   position: absolute;
   right: 1.5rem;
+
+  
 }
 
 /*========= HOME =========== */
@@ -292,4 +333,29 @@ nav.show div.icon-close {
 #about .text {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
+}
+
+/*========= SERVICES =========== */
+.cards .grid {
+  gap: 1.5rem;
+}
+
+.card {
+  padding:3.625rem 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-bottom: .25rem solid var(--base-color);
+  border-radius: .25rem .25rem 0 0;
+  text-align: center;
+}
+
+.card i {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size:5rem;
+  color: var(--base-color);
+}
+
+.card .title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
 }
