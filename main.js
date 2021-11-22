@@ -24,16 +24,18 @@ for (const link of links) {
 /**
  * Mudar o header da página quando o utilizador der scroll
  */
-const header = document.querySelector('#header');
-const navHeight = header.offsetHeight;
+function changeHeaderWhenScroll() {
+  const header = document.querySelector('#header');
+  const navHeight = header.offsetHeight;
 
-window.addEventListener('scroll', function () {
   if (window.scrollY >= navHeight) {
     header.classList.add('scroll')
   } else {
     header.classList.remove('scroll')
   }
-})
+}
+
+
 /**
  * Carrosel de Imagens dos depoimentos
  */
@@ -60,14 +62,22 @@ scrollReveal.reveal(`
 #about .image, #about .text,
 #services header, #services .card,
 #testimonials header, #testimonials .testimonials,
-#contact .text, #contact .links`, { interval: 100 })
+#contact .text, #contact .links
+footer .brand, footer .social`, { interval: 100 })
 
 /* Botao de voltar para o topo */
-const backToTopButton = document.querySelector('.back-to-top');
-window.addEventListener('scroll', function () {
+function backToTopButton() {
+  const backToTopButton = document.querySelector('.back-to-top');
+
   if (window.scrollY >= 560) {
     backToTopButton.classList.add('show');
   } else {
     backToTopButton.classList.remove('show');
   }
+}
+
+/* WHEN SCROLL */
+window.addEventListener('scroll', function () {
+  changeHeaderWhenScroll()
+  backToTopButton()
 })
