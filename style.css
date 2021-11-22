@@ -174,17 +174,17 @@ nav {
 
 nav ul li {
   text-align: center;
-  position: relative;
 }
 
 nav ul li a {
   transition: color 0.2s;
+  position: relative;
 }
 
 nav ul li a:hover, 
-nav ul li a:active {
-  color: var(--base-color);
-  font-weight: bold;
+nav ul li a.active {
+  /*color: var(--base-color);*/
+  color: var(--title-font)
 }
 
 nav ul li a::after { 
@@ -263,10 +263,6 @@ nav.show div.icon-close {
   visibility: visible;
   opacity: 1;
   top: 1.5rem;
-  position: absolute;
-  right: 1.5rem;
-
-  
 }
 
 /*========= HOME =========== */
@@ -575,6 +571,13 @@ footer .social a:hover {
 
   nav .menu ul li a.title {
     font: 400 1rem var(--body-font);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav .menu ul li a.title.active {
+    font-weight: bold;
+    color: black;
+    -webkit-font-smoothing: auto;
   }
 
   nav .icon-menu {
