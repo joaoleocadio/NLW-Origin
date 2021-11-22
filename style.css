@@ -181,11 +181,13 @@ nav ul li a {
   transition: color 0.2s;
 }
 
-nav ul li a:hover {
+nav ul li a:hover, 
+nav ul li a:active {
   color: var(--base-color);
+  font-weight: bold;
 }
 
-nav ul li a:after { 
+nav ul li a::after { 
   content: "";
   width: 0%;
   height: 2px;
@@ -198,7 +200,8 @@ nav ul li a:after {
   transition: width 0.2s;
 }
 
-nav ul li a:hover::after {
+nav ul li a:hover::after,
+nav ul li a.active::after{
   width: 100%;
 }
 
@@ -546,7 +549,8 @@ footer .social a:hover {
     padding: 10rem 0;
   }
 
-  .section header {
+  .section header,
+  #testimonials header {
     max-width: 32rem;
     text-align: center;
     margin-left: auto;
@@ -604,7 +608,47 @@ footer .social a:hover {
     margin: 0 auto;
     grid-auto-flow: column;
   }
+
+  /* ===== SERVICES =====*/
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .card {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  /*===== TESTIMONIALS ===== */
+  #testimonials .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
   
+  /*===== CONTACTOS ===== */
+  #contact .container{
+    grid-auto-flow: column;
+    align-items: center;
+  }
+
+  #contact .text {
+    max-width: 25rem;
+  }
+
+  /*===== FOOTER ===== */
+  footer.section {
+    padding: 3.75rem 0;
+  }
+
+  footer .container {
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer .logo {
+    font-size: 2.25rem;
+  }
 }
 
 
