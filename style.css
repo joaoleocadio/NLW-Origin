@@ -536,9 +536,25 @@ footer .social a:hover {
 
 /* Responsividade */
 @media (min-width: 1200px) {
+  .container {
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   .section {
     padding: 10rem 0;
+  }
+
+  .section header {
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button {
+    height: 3.125rem;
   }
 
   nav .menu {
@@ -557,9 +573,38 @@ footer .social a:hover {
     font: 400 1rem var(--body-font);
   }
 
+  nav .icon-menu {
+    display: none;
+  }
+
   main {
     margin-top: var(--header-height);
   }
+
+  /* HOME */
+
+  #home .container {
+    grid-auto-flow: column;
+    width: fit-content;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+  #home .image {
+    order: 1;
+  }
+
+  #home .text {
+    order: 0;
+    max-width: 24rem;
+    text-align: left;
+  }
+
+  /*===== ABOUT ======*/
+  #about .container {
+    margin: 0 auto;
+    grid-auto-flow: column;
+  }
+  
 }
 
 
